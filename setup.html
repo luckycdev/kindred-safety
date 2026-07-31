@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindred — Setup guides</title>
+<meta name="description" content="Short guides for setting up Kindred: your circle, the SOS shortcut, subscriptions, location sharing and the clip archive.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>try{var t=localStorage.getItem('kindred-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Setup</span>
+        <h2>Seven short guides. Nothing longer than four minutes.</h2>
+        <p>Video thumbnails below are generated placeholders — this is a demo build with no media hosting attached.</p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card vidcard reveal">
+          <div class="vidcard__thumb"><canvas data-scene="street" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+            <span class="vidcard__play">▶</span><span class="vidcard__len">3:12</span></div>
+          <div class="vidcard__body"><h3>First-run setup</h3><p>Install, verify your number, choose a passphrase, and understand what the passphrase protects.</p></div>
+        </article>
+        <article class="card vidcard reveal">
+          <div class="vidcard__thumb"><canvas data-scene="night" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+            <span class="vidcard__play">▶</span><span class="vidcard__len">2:40</span></div>
+          <div class="vidcard__body"><h3>Building your circle</h3><p>Invites, streamer versus viewer seats, per-member notification rules, and how to revoke someone instantly.</p></div>
+        </article>
+        <article class="card vidcard reveal">
+          <div class="vidcard__thumb"><canvas data-scene="park" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+            <span class="vidcard__play">▶</span><span class="vidcard__len">1:58</span></div>
+          <div class="vidcard__body"><h3>The SOS shortcut</h3><p>Lock-screen widget, triple-press of the side button, and pairing a Bluetooth keychain remote.</p></div>
+        </article>
+        <article class="card vidcard reveal">
+          <div class="vidcard__thumb"><canvas data-scene="campus" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+            <span class="vidcard__play">▶</span><span class="vidcard__len">4:02</span></div>
+          <div class="vidcard__body"><h3>Streaming vs recording</h3><p>When the app broadcasts live, when it only records locally, and what happens on a weak connection.</p></div>
+        </article>
+        <article class="card vidcard reveal">
+          <div class="vidcard__thumb"><canvas data-scene="night" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+            <span class="vidcard__play">▶</span><span class="vidcard__len">2:21</span></div>
+          <div class="vidcard__body"><h3>Location &amp; safe places</h3><p>Trail accuracy, arrival and departure pings, and how to share a one-time link with someone outside your circle.</p></div>
+        </article>
+        <article class="card vidcard reveal">
+          <div class="vidcard__thumb"><canvas data-scene="street" style="position:absolute;inset:0;width:100%;height:100%"></canvas>
+            <span class="vidcard__play">▶</span><span class="vidcard__len">3:33</span></div>
+          <div class="vidcard__body"><h3>Subscriptions &amp; seats</h3><p>Changing plan size, what a stream hour is, overage billing, and cancelling without losing your archive.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--bg-alt);border-block:1px solid var(--line-soft)">
+    <div class="wrap">
+      <div class="head head--left">
+        <h2>Written walkthrough</h2>
+        <p>The same setup, if you'd rather read than watch.</p>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="step__n">01</span><h3>Install &amp; verify</h3><p>Download from the App Store or Google Play, verify your phone number, then set a passphrase. Write it down somewhere physical — we can't reset it, and it's the key to your clip archive.</p></div>
+        <div class="step"><span class="step__n">02</span><h3>Grant three permissions</h3><p>Camera, microphone and “always” location. The app explains what each one is used for before it asks, and it works — degraded — if you decline location.</p></div>
+        <div class="step"><span class="step__n">03</span><h3>Invite your circle</h3><p>Send invites by phone number. Each person picks streamer or viewer. You can change either role later without re-inviting.</p></div>
+      </div>
+      <div class="steps mt-3">
+        <div class="step"><span class="step__n">04</span><h3>Bind the trigger</h3><p>Add the lock-screen widget, then enable the side-button shortcut in Settings → Trigger. Test it once — the app has a rehearsal mode that alerts nobody.</p></div>
+        <div class="step"><span class="step__n">05</span><h3>Mark your safe places</h3><p>Home, work, a campus, a friend's flat. Arrivals and departures generate a quiet ping instead of an alert.</p></div>
+        <div class="step"><span class="step__n">06</span><h3>Do a dry run together</h3><p>Rehearsal mode streams to your circle with a clear “this is a test” banner. Do it once so nobody's first experience of the alert is a real one.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head"><h2>Troubleshooting</h2></div>
+      <div class="faq">
+        <details open><summary>The stream starts but my circle sees a black screen</summary><p>Almost always a camera permission that was granted for “this time only”. Open Settings → Permissions → Camera and switch it to “while using the app”, then restart the broadcast.</p></details>
+        <details><summary>SOS doesn't fire from the lock screen</summary><p>iOS: Settings → Accessibility → Side Button → Triple-press → Kindred. Android: Settings → Gestures → Quick Launch. Battery optimisation can also suspend the listener — exclude Kindred from it.</p></details>
+        <details><summary>Location shows the wrong street</summary><p>Indoors, the first fix comes from Wi-Fi triangulation and can be 100 m out. It converges within about 20 seconds outdoors. The accuracy radius in the viewer console is always honest about this.</p></details>
+        <details><summary>A clip won't decrypt</summary><p>The passphrase is wrong, or it was changed after the clip was recorded. Old clips keep their old key — try the passphrase you used at the time of recording.</p></details>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

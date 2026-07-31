@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindred — Create your circle</title>
+<meta name="description" content="Create a Kindred account and start a 30-day free trial. Demo build — no account is ever created.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>try{var t=localStorage.getItem('kindred-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <div class="auth">
+    <aside class="auth__aside">
+      <span class="eyebrow" style="background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28);color:#fff"><span class="dot"></span> 30-day free trial</span>
+      <h2 style="color:#fff;max-width:16ch">Four minutes now. One button forever.</h2>
+      <ul class="tick-list" style="color:rgba(255,255,255,.9)">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd479" stroke-width="2.4" stroke-linecap="round"><path d="m4.5 12.5 5 5 10-11"/></svg> Full app during the trial — nothing is held back</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd479" stroke-width="2.4" stroke-linecap="round"><path d="m4.5 12.5 5 5 10-11"/></svg> No card charged until day 31</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd479" stroke-width="2.4" stroke-linecap="round"><path d="m4.5 12.5 5 5 10-11"/></svg> Cancel in two taps, keep your archive for 90 days</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd479" stroke-width="2.4" stroke-linecap="round"><path d="m4.5 12.5 5 5 10-11"/></svg> Your circle pays nothing, ever</li>
+      </ul>
+      <p class="small" style="color:rgba(255,255,255,.7)">“She presses one button and I'm just… there.” — Rosa A., illustrative testimonial</p>
+    </aside>
+
+    <section class="auth__form">
+      <div>
+        <h1 style="font-size:clamp(1.6rem,3vw,2.1rem)">Create your circle</h1>
+        <p class="muted small mt-1 mb-3">Already have an account? <a href="login.html" style="color:var(--brand-300)">Log in</a>.</p>
+
+        <form class="form" data-demo novalidate>
+          <div class="alert alert--ok" data-demo-result hidden>
+            <b>No account was created.</b> This is a front-end demo with no server, no database and no storage —
+            your input never left this page and has already been discarded.
+          </div>
+
+          <div class="field--row">
+            <div class="field"><label for="r-first">First name</label><input class="input" id="r-first" autocomplete="off" placeholder="Maya" required></div>
+            <div class="field"><label for="r-last">Last name</label><input class="input" id="r-last" autocomplete="off" placeholder="Reyes" required></div>
+          </div>
+          <div class="field"><label for="r-email">Email</label><input class="input" id="r-email" type="email" autocomplete="off" placeholder="maya@example.com" required></div>
+          <div class="field"><label for="r-phone">Mobile number</label><input class="input" id="r-phone" type="tel" autocomplete="off" placeholder="+1 555 0134"><span class="form__note">Used for SOS SMS fallback and circle invites.</span></div>
+          <div class="field">
+            <label for="r-plan">Plan</label>
+            <select class="select input" id="r-plan">
+              <option value="Individual">Individual — $4.99/mo · 1 streamer, 2 viewers</option>
+              <option value="2-Person">2-Person — $6.99/mo</option>
+              <option value="3-Person">3-Person — $8.99/mo</option>
+              <option value="Family" selected>Family — $9.99/mo · 4 streamers, 8 viewers</option>
+              <option value="5-Person">5-Person — $10.99/mo</option>
+              <option value="6-Person">6-Person — $12.99/mo</option>
+              <option value="7-Person">7-Person — $14.99/mo</option>
+              <option value="8-Person">8-Person — $16.99/mo</option>
+              <option value="9-Person">9-Person — $18.99/mo</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="r-pass">Archive passphrase</label>
+            <input class="input" id="r-pass" type="password" autocomplete="new-password" placeholder="At least 12 characters">
+            <span class="form__note">This encrypts your clips. We never receive it and cannot reset it.</span>
+          </div>
+          <label class="check"><input type="checkbox" required> I agree to the <a href="terms.html" style="color:var(--brand-300)">Terms</a> and the <a href="privacy.html" style="color:var(--brand-300)">Privacy Policy</a>.</label>
+          <label class="check"><input type="checkbox"> Email me product updates — roughly once a month, never sold on.</label>
+          <button class="btn btn--lg btn--block" type="submit">Start 30-day free trial</button>
+
+          <div class="divider">or</div>
+          <a class="btn btn--ghost btn--block" href="app.html">Skip signup — open the live demo</a>
+          <p class="form__note center">Demo build. Do not enter a real password anywhere on this site.</p>
+        </form>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer data-footer></footer>
+<script src="assets/js/main.js"></script>
+<script>
+// Pre-select the plan if the user arrived from plans.html
+const wanted = new URLSearchParams(location.search).get('plan');
+if (wanted) {
+  const sel = document.getElementById('r-plan');
+  [...sel.options].forEach((o) => { if (o.value === wanted) sel.value = wanted; });
+}
+</script>
+</body>
+</html>

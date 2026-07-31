@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindred — Log in</title>
+<meta name="description" content="Log in to the Kindred viewer console. Demo build — no credentials are ever transmitted or stored.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>try{var t=localStorage.getItem('kindred-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <div class="auth">
+    <section class="auth__form">
+      <div>
+        <h1 style="font-size:clamp(1.6rem,3vw,2.1rem)">Welcome back</h1>
+        <p class="muted small mt-1 mb-3">No account yet? <a href="register.html" style="color:var(--brand-300)">Start a free trial</a>.</p>
+
+        <form class="form" data-demo novalidate>
+          <div class="alert alert--ok" data-demo-result hidden>
+            <b>Nothing was submitted.</b> There is no authentication server behind this page. The password field has
+            been cleared — open the <a href="app.html" style="color:var(--brand-300)">live demo console</a> instead.
+          </div>
+          <div class="field"><label for="l-email">Email or mobile number</label><input class="input" id="l-email" autocomplete="off" placeholder="maya@example.com" required></div>
+          <div class="field"><label for="l-pass">Password</label><input class="input" id="l-pass" type="password" autocomplete="off" placeholder="••••••••••••"></div>
+          <div class="row" style="justify-content:space-between">
+            <label class="check"><input type="checkbox"> Keep me signed in</label>
+            <a class="small" href="contact.html" style="color:var(--brand-300)">Forgot password?</a>
+          </div>
+          <button class="btn btn--lg btn--block" type="submit">Log in</button>
+          <div class="divider">or</div>
+          <a class="btn btn--ghost btn--block" href="app.html">Open the live demo console</a>
+          <p class="form__note center">Demo build. Never type a real password into this page.</p>
+        </form>
+      </div>
+    </section>
+
+    <aside class="auth__aside">
+      <span class="eyebrow" style="background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.28);color:#fff"><span class="dot"></span> 4 of 6 members online</span>
+      <h2 style="color:#fff;max-width:16ch">Your circle is already watching for you.</h2>
+      <p style="color:rgba(255,255,255,.82);max-width:44ch">Log in on the web to watch a stream on a bigger screen,
+        review the clip archive, and manage seats without touching your phone.</p>
+      <ul class="tick-list" style="color:rgba(255,255,255,.9)">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd479" stroke-width="2.4" stroke-linecap="round"><path d="m4.5 12.5 5 5 10-11"/></svg> Full-screen viewer console</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd479" stroke-width="2.4" stroke-linecap="round"><path d="m4.5 12.5 5 5 10-11"/></svg> Clip export with checksum sidecar</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffd479" stroke-width="2.4" stroke-linecap="round"><path d="m4.5 12.5 5 5 10-11"/></svg> Seat and billing management</li>
+      </ul>
+    </aside>
+  </div>
+</main>
+
+<footer data-footer></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

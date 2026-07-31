@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindred — Plans &amp; pricing</title>
+<meta name="description" content="Nine Kindred plans, from a single person to a circle of nine. Every plan includes live streaming, live location, SOS and the clip archive.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>try{var t=localStorage.getItem('kindred-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <section class="section" style="padding-bottom:0">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Plans</span>
+        <h2>Kindred needs a subscription to work.</h2>
+        <p>Streaming costs money every second it runs, so there's no free tier — but there is a real 30-day trial on
+           three of the plans, and cancelling takes two taps.</p>
+      </div>
+
+      <div class="row row--center mb-3">
+        <div class="tabs" role="tablist" aria-label="Billing period">
+          <button role="tab" aria-selected="true"  data-cycle="month">Monthly</button>
+          <button role="tab" aria-selected="false" data-cycle="year">Yearly · save 2 months</button>
+        </div>
+      </div>
+
+      <div class="plans" id="plan-grid"></div>
+
+      <p class="center small muted mt-3">
+        Prices in USD, billed through the App Store or Google Play. A “streamer” seat can start a broadcast;
+        a “viewer” seat can watch one. Hours reset monthly and unused hours don't roll over.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="head head--left">
+        <h2>What's in every plan</h2>
+        <p>The feature set doesn't change with price. You're buying capacity, not capability.</p>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr><th>Capability</th><th>Individual</th><th>Family</th><th>9-Person</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1080p live streaming</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>Live location trail</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>One-tap SOS + SMS fallback</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>110 dB panic siren</td><td>Included</td><td>Included</td><td>Included</td></tr>
+            <tr><td>Encrypted clip archive</td><td>90 days</td><td>90 days</td><td>90 days</td></tr>
+            <tr><td>Streamer seats</td><td>1</td><td>4</td><td>9</td></tr>
+            <tr><td>Viewer seats</td><td>2</td><td>8</td><td>18</td></tr>
+            <tr><td>Stream hours / month</td><td>1</td><td>4</td><td>9</td></tr>
+            <tr><td>View hours / month</td><td>2</td><td>8</td><td>18</td></tr>
+            <tr><td>30-day free trial</td><td>Yes</td><td>Yes</td><td>—</td></tr>
+            <tr><td>Priority relay servers</td><td>—</td><td>Yes</td><td>Yes</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="faq">
+        <details open><summary>What counts as a stream hour?</summary><p>Wall-clock time with your camera live. A 90-second SOS burst costs 90 seconds. Idle location sharing costs nothing.</p></details>
+        <details><summary>What happens if I run out of hours mid-stream?</summary><p>Nothing, immediately — we never cut a live broadcast. You'll go into overage at $0.90 per hour, billed the following month, and we'll tell you the moment it starts.</p></details>
+        <details><summary>Can I change plan size later?</summary><p>Any time, both directions. Upgrades apply instantly and are prorated; downgrades take effect at your next renewal so nobody loses access mid-cycle.</p></details>
+        <details><summary>Do viewers need their own subscription?</summary><p>No. Viewer seats come out of the plan of whoever is streaming. Your circle installs the app, accepts the invite, and pays nothing.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Start on the Family plan free for 30 days.</h2>
+        <p>No card charged until day 31. Cancel from inside the app in two taps.</p>
+        <a class="btn btn--lg btn--amber" href="register.html">Start free trial</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+<script src="assets/js/main.js"></script>
+<script>
+const PLANS = [
+  { name: 'Individual', people: 1, price: 4.99,  blurb: 'Amazing value, just for you.',        trial: true },
+  { name: '2-Person',   people: 2, price: 6.99,  blurb: 'Terrific for two.',                   trial: false },
+  { name: '3-Person',   people: 3, price: 8.99,  blurb: 'Ideal for three.',                    trial: false },
+  { name: 'Family',     people: 4, price: 9.99,  blurb: 'Fantastic savings for a family of four.', trial: true, featured: true },
+  { name: '5-Person',   people: 5, price: 10.99, blurb: 'Fantastic for five.',                 trial: false },
+  { name: '6-Person',   people: 6, price: 12.99, blurb: 'Sublime for six.',                    trial: false },
+  { name: '7-Person',   people: 7, price: 14.99, blurb: 'Perfect for seven.',                  trial: false },
+  { name: '8-Person',   people: 8, price: 16.99, blurb: 'Great for eight.',                    trial: true },
+  { name: '9-Person',   people: 9, price: 18.99, blurb: 'Divine for nine.',                    trial: false },
+];
+
+const grid = document.getElementById('plan-grid');
+let cycle = 'month';
+
+function money(n) { return '$' + n.toFixed(2); }
+
+function render() {
+  grid.innerHTML = PLANS.map((p) => {
+    const price = cycle === 'month' ? p.price : p.price * 10;
+    const per = cycle === 'month' ? '/ month' : '/ year';
+    return `
+      <article class="card plan reveal${p.featured ? ' plan--featured' : ''}">
+        ${p.featured ? '<span class="ribbon">Most popular</span>' : ''}
+        <span class="plan__name">${p.name} plan</span>
+        <div class="plan__price"><b>${money(price)}</b><span>${per}</span></div>
+        <p class="plan__desc">${p.blurb}${p.trial ? ' <span class="trial-tag">· 30-day free trial</span>' : ''}</p>
+        <div class="plan__specs">
+          <div class="spec"><b>${p.people}</b><span>Streamer${p.people > 1 ? 's' : ''}</span></div>
+          <div class="spec"><b>${p.people}</b><span>Stream hrs</span></div>
+          <div class="spec"><b>${p.people * 2}</b><span>Viewers</span></div>
+          <div class="spec"><b>${p.people * 2}</b><span>View hrs</span></div>
+        </div>
+        <a class="btn ${p.featured ? '' : 'btn--ghost'} btn--block" href="register.html?plan=${encodeURIComponent(p.name)}">Get plan</a>
+      </article>`;
+  }).join('');
+  grid.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+}
+
+document.querySelectorAll('[data-cycle]').forEach((btn) => btn.addEventListener('click', () => {
+  cycle = btn.dataset.cycle;
+  document.querySelectorAll('[data-cycle]').forEach((b) => b.setAttribute('aria-selected', String(b === btn)));
+  render();
+}));
+
+render();
+</script>
+</body>
+</html>

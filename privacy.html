@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindred — Privacy policy</title>
+<meta name="description" content="Sample privacy policy for the Kindred demo project. Not a real legal document.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>try{var t=localStorage.getItem('kindred-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <section class="section">
+    <div class="wrap prose">
+      <span class="eyebrow">Legal</span>
+      <h1 class="mt-2" style="font-size:clamp(1.8rem,3.4vw,2.6rem)">Privacy policy</h1>
+      <p class="muted small mt-1">Sample text · last updated 1 March 2026</p>
+
+      <div class="alert alert--info mt-3">
+        <b>Placeholder text in a demo project.</b> This site has no backend and collects nothing whatsoever — not even
+        analytics. The policy below describes what the fictional product would do.
+      </div>
+
+      <h2>The short version</h2>
+      <ul>
+        <li>Clips are encrypted on your device with a key derived from your passphrase. We can't read them.</li>
+        <li>Location is shared only during a stream, or with the circle you chose, at the frequency you set.</li>
+        <li>No advertising SDKs, no third-party analytics, no data brokers, no model training on your content.</li>
+        <li>Deleting means deleting — from live storage and from backups within 72 hours.</li>
+      </ul>
+
+      <h2>What we collect</h2>
+      <h3>Account data</h3>
+      <p>Name, email address, mobile number, plan, and the identifiers your app store gives us for billing. We keep this
+        for as long as the account exists, plus 90 days.</p>
+      <h3>Location data</h3>
+      <p>Coordinates, accuracy, speed and heading, captured every three seconds during a stream and every fifteen
+        minutes when idle location sharing is enabled. Trails older than 30 days are deleted automatically. You can turn
+        idle sharing off entirely; SOS location is captured only at the moment you trigger it.</p>
+      <h3>Media</h3>
+      <p>Video and audio you broadcast, stored encrypted with a key we do not hold, retained for 90 days by default.</p>
+      <h3>Diagnostics</h3>
+      <p>Crash traces, connection timings and error codes. These contain no video, no audio and no coordinates, and are
+        only sent if you opt in.</p>
+
+      <h2>What we do not collect</h2>
+      <p>Contacts, photo library, browsing activity, advertising identifiers, device fingerprints, or any information
+        about people who are not Kindred users. Circle invites are matched by a salted hash of the phone number so we
+        never store the numbers of people who decline.</p>
+
+      <h2>Who we share with</h2>
+      <p>The members of your circle, and nobody else, except: our payment processor (billing identifiers only), our
+        relay provider (encrypted stream packets only), and our SMS provider (phone number and a fixed alert template,
+        used only for SOS fallback). We publish the list of these providers and update it 30 days before adding one.</p>
+
+      <h2>Legal requests</h2>
+      <p>We respond to valid legal process, and we tell you when we do unless we're legally barred from it. Because
+        clips are encrypted with a key we don't hold, what we can produce is limited to account and billing metadata.
+        We publish an aggregate transparency report twice a year.</p>
+
+      <h2>Your rights</h2>
+      <p>Export, correct or delete your data at any time from Settings → Privacy, or by emailing
+        privacy@kindred.example. Exports are machine-readable and include your location history, clip index and account
+        record. Deletion requests complete within 72 hours.</p>
+
+      <h2>Children</h2>
+      <p>Kindred is not designed for children under 13. A guardian may add a 13–15 year old to a circle, and that member
+        can see exactly what is shared about them, on the same screen the guardian sees.</p>
+
+      <h2>Contact</h2>
+      <p>privacy@kindred.example — a real person answers within a week, and within 30 days for formal requests.</p>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

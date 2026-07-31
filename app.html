@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindred — Live demo console</title>
+<meta name="description" content="A fully client-side simulation of the Kindred viewer console: live stream, location trail, circle status and the alert feed.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>try{var t=localStorage.getItem('kindred-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <section class="wrap" style="padding-top:26px">
+    <div class="alert alert--info">
+      <b>Simulation.</b> Nothing here touches a network, a camera or a microphone. The “feed” is drawn with canvas,
+      the map is generated SVG, and every alert is produced by a timer in <code>assets/js/app.js</code>.
+    </div>
+  </section>
+
+  <section class="wrap">
+    <div class="row" style="justify-content:space-between;margin-top:22px">
+      <div>
+        <h1 style="font-size:clamp(1.5rem,3vw,2rem)">Viewer console</h1>
+        <p class="muted small">Watching <b id="watch-name">Maya R.</b> · session started <span id="watch-start">21:04</span></p>
+      </div>
+      <div class="row gap-sm">
+        <button class="btn btn--ghost" id="btn-theme-demo">Toggle theme</button>
+        <button class="btn btn--danger" id="btn-sos">Trigger SOS</button>
+      </div>
+    </div>
+
+    <div class="console">
+      <!-- ============ LEFT: circle ============ -->
+      <div class="console__left stack" style="gap:16px">
+        <div class="pane">
+          <div class="pane__head"><h3>Your circle</h3><span class="xs muted" id="circle-count">6 members</span></div>
+          <div class="pane__body" id="members"></div>
+        </div>
+        <div class="pane">
+          <div class="pane__head"><h3>Session</h3></div>
+          <div class="pane__body">
+            <div class="kpis">
+              <div class="kpi"><b id="kpi-time">02:14</b><span>Elapsed</span></div>
+              <div class="kpi"><b id="kpi-viewers">4</b><span>Watching</span></div>
+              <div class="kpi"><b id="kpi-bitrate">2.4</b><span>Mbps</span></div>
+            </div>
+            <div class="kpis mt-2">
+              <div class="kpi"><b id="kpi-battery">87%</b><span>Battery</span></div>
+              <div class="kpi"><b id="kpi-speed">4.1</b><span>km/h</span></div>
+              <div class="kpi"><b id="kpi-acc">6m</b><span>GPS acc.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ============ CENTER: stage ============ -->
+      <div class="console__center pane">
+        <div class="stage">
+          <canvas id="stage-canvas"></canvas>
+          <div class="stage__hud">
+            <div class="stage__row">
+              <span class="chip chip--live"><i class="rec-dot"></i> LIVE</span>
+              <span class="chip" id="hud-quality">1080p · 2.4 Mbps</span>
+              <span class="chip chip--ok" id="hud-gps">GPS lock · 6 m</span>
+              <span class="chip" id="hud-siren" hidden>SIREN ACTIVE</span>
+            </div>
+            <div class="stage__row" style="justify-content:space-between;align-items:flex-end">
+              <div class="chip" id="hud-place">Elm St &amp; 4th Ave · Northside</div>
+              <div class="chip" id="hud-clock">02:14</div>
+            </div>
+          </div>
+        </div>
+        <div class="controls">
+          <button class="btn btn--ghost" id="btn-scene">Switch camera</button>
+          <button class="btn btn--ghost" id="btn-quality">Drop to 480p</button>
+          <button class="btn btn--ghost" id="btn-siren">Sound siren</button>
+          <button class="btn btn--ghost" id="btn-pin">Drop a pin</button>
+          <button class="btn btn--ghost" id="btn-clip" style="margin-left:auto">Save clip</button>
+        </div>
+      </div>
+
+      <!-- ============ RIGHT: map + feed ============ -->
+      <div class="console__right stack" style="gap:16px">
+        <div class="pane">
+          <div class="pane__head"><h3>Live location</h3><span class="xs muted" id="map-updated">updated 2s ago</span></div>
+          <div class="map" id="map">
+            <svg viewBox="0 0 320 320" role="img" aria-label="Simulated street map with the streamer's location trail">
+              <defs>
+                <pattern id="blocks" width="64" height="64" patternUnits="userSpaceOnUse">
+                  <rect width="64" height="64" fill="none"/>
+                  <path d="M0 0h64M0 0v64" stroke="currentColor" stroke-opacity=".22" stroke-width="1"/>
+                </pattern>
+                <radialGradient id="ping">
+                  <stop offset="0" stop-color="#f0384f" stop-opacity=".7"/>
+                  <stop offset="1" stop-color="#f0384f" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <rect width="320" height="320" fill="var(--surface-2)"/>
+              <g color="var(--text-mute)"><rect width="320" height="320" fill="url(#blocks)"/></g>
+              <path d="M0 196h320M148 0v320" stroke="var(--line)" stroke-width="14"/>
+              <path d="M0 196h320M148 0v320" stroke="var(--surface)" stroke-width="10"/>
+              <path d="M0 84 Q 120 96 320 62" stroke="var(--line)" stroke-width="9" fill="none"/>
+              <circle cx="242" cy="118" r="34" fill="var(--mint-500)" opacity=".14"/>
+              <text x="242" y="122" text-anchor="middle" font-size="9" fill="var(--text-mute)">Riverside Park</text>
+              <rect x="30" y="222" width="66" height="46" rx="5" fill="var(--line)" opacity=".7"/>
+              <text x="63" y="249" text-anchor="middle" font-size="9" fill="var(--text-mute)">Home</text>
+              <polyline id="trail" fill="none" stroke="var(--brand-400)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 7" points=""/>
+              <circle id="ping-ring" cx="160" cy="160" r="40" fill="url(#ping)"/>
+              <circle id="dot" cx="160" cy="160" r="7" fill="#fff" stroke="var(--rose-500)" stroke-width="4"/>
+              <g id="pins"></g>
+            </svg>
+            <div class="map__legend">
+              <span><i style="background:var(--rose-500)"></i>Maya · live</span>
+              <span><i style="background:var(--brand-400)"></i>Last 10 minutes</span>
+              <span><i style="background:var(--mint-500)"></i>Safe place</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pane">
+          <div class="pane__head"><h3>Alert feed</h3><button class="btn btn--ghost xs" id="btn-clear" style="padding:5px 12px">Clear</button></div>
+          <div class="pane__body pane__body--flush"><div class="feed" id="feed"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ clips ============ -->
+    <section class="section--tight">
+      <div class="row" style="justify-content:space-between;margin-bottom:16px">
+        <h2 style="font-size:1.3rem">Clip archive</h2>
+        <span class="xs muted">Encrypted · 90-day retention · <span id="clip-count">6</span> clips</span>
+      </div>
+      <div class="clips" id="clips"></div>
+    </section>
+  </section>
+</main>
+
+<footer data-footer></footer>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

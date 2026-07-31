@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kindred — Contact us</title>
+<meta name="description" content="Get in touch with the Kindred team — support, press, security disclosures and partnerships.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>try{var t=localStorage.getItem('kindred-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+</head>
+<body>
+<header data-nav></header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <div class="head">
+        <span class="eyebrow">Contact</span>
+        <h2>One person reads every message.</h2>
+        <p>Support replies within a day. Security reports get an acknowledgement within four hours.</p>
+      </div>
+
+      <div class="grid" style="grid-template-columns:1.15fr .85fr;gap:clamp(20px,4vw,40px)">
+        <div class="panel">
+          <form class="form" data-demo novalidate>
+            <div class="alert alert--ok" data-demo-result hidden>
+              <b>Nothing was sent.</b> This is a static demo with no backend — the form validates and resets, and that's all.
+            </div>
+            <div class="field--row">
+              <div class="field"><label for="c-name">Your name</label><input class="input" id="c-name" placeholder="Alex Doe" required></div>
+              <div class="field"><label for="c-email">Email</label><input class="input" id="c-email" type="email" placeholder="alex@example.com" required></div>
+            </div>
+            <div class="field">
+              <label for="c-topic">What's this about?</label>
+              <select class="select input" id="c-topic">
+                <option>Support — something isn't working</option>
+                <option>Billing &amp; subscriptions</option>
+                <option>Security disclosure</option>
+                <option>Press &amp; media</option>
+                <option>Partnerships</option>
+              </select>
+            </div>
+            <div class="field"><label for="c-msg">Message</label><textarea class="input" id="c-msg" rows="6" placeholder="Tell us what happened, and which phone you're using." required></textarea></div>
+            <label class="check"><input type="checkbox"> Attach my last diagnostic log (no video, no location — just timings and error codes).</label>
+            <button class="btn btn--lg" type="submit">Send message</button>
+            <p class="form__note">Demo build: this form never transmits anything.</p>
+          </form>
+        </div>
+
+        <div class="stack" style="gap:16px;align-content:start">
+          <article class="card">
+            <div class="card__icon card__icon--mint"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="2.6" y="5" width="18.8" height="14" rx="3"/><path d="m3.4 7 8.6 6 8.6-6"/></svg></div>
+            <h3>Support</h3>
+            <p>help@kindred.example · replies within 24 hours, seven days a week.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon card__icon--rose"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"><path d="M12 2.6 20.5 6v6.4c0 5-3.4 8.7-8.5 10.4-5.1-1.7-8.5-5.4-8.5-10.4V6L12 2.6Z"/><path d="m8.8 12.2 2.2 2.2 4.2-4.6"/></svg></div>
+            <h3>Security disclosures</h3>
+            <p>security@kindred.example · PGP key on the site. Acknowledged in four hours, fixed or scoped in seven days, credited unless you'd rather not be.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon card__icon--amber"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4 5.5h16v13H4z"/><path d="M8 9.5h8M8 13h5"/></svg></div>
+            <h3>Press</h3>
+            <p>press@kindred.example · brand assets, product screenshots and founder bios on request.</p>
+          </article>
+          <article class="card">
+            <div class="card__icon card__icon--sky"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="9"/><path d="M12 7.4v5.1l3.2 1.9"/></svg></div>
+            <h3>In an emergency</h3>
+            <p>Don't email us. Call your local emergency number — Kindred alerts your circle, not the authorities.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer data-footer></footer>
+<script src="assets/js/main.js"></script>
+<style>@media (max-width: 900px){ main .grid[style*="1.15fr"]{ grid-template-columns:1fr !important; } }</style>
+</body>
+</html>

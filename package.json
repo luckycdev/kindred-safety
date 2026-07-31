@@ -1,0 +1,15 @@
+{
+  "name": "kindred-safety",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kindred — a fictional personal-security streaming product. Static marketing site plus a fully client-side demo console.",
+  "type": "module",
+  "scripts": {
+    "start": "node scripts/serve.mjs 5173",
+    "shots": "node scripts/shoot.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "^1.49.0"
+  },
+  "license": "MIT"
+}
