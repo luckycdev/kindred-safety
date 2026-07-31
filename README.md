@@ -13,6 +13,8 @@ No build step. No frameworks. No trackers. No backend. Just HTML, CSS and vanill
 [![Screenshots](https://img.shields.io/badge/screenshots-42-f5a623?style=flat-square)](#screenshot-tour)
 [![License](https://img.shields.io/badge/license-MIT-b3acd8?style=flat-square)](LICENSE)
 
+**[▶ Open the live site](https://luckycdev.github.io/kindred-safety/)** · **[▶ Open the demo console](https://luckycdev.github.io/kindred-safety/app.html)**
+
 ![Kindred home page](docs/screenshots/01-home-hero.png)
 
 </div>
